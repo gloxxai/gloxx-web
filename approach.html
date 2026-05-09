@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="/og-image.jpg">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","@id":"https://gloxx.ai/#organization","name":"Gloxx","alternateName":"Gloxx QA Institute","url":"https://gloxx.ai","logo":"https://gloxx.ai/gloxx-logo-white-transparent-o-cutout.png","foundingDate":"2026","founder":{"@type":"Person","name":"Brandon Jensen"},"description":"A fractional QA team for software companies, with the Gloxx QA Institute as the published methodology behind the retainer.","email":"hello@gloxx.ai","sameAs":["https://www.facebook.com/profile.php?id=61588947554770","https://x.com/Gloxxai","https://github.com/gloxxai","https://www.linkedin.com/company/gloxxai"]}
+  {"@context":"https://schema.org","@type":"Organization","@id":"https://gloxx.ai/#organization","name":"Gloxx","alternateName":"Gloxx QA Institute","url":"https://gloxx.ai","logo":"https://gloxx.ai/gloxx-logo-white-transparent-o-cutout.png","foundingDate":"2026","founder":{"@type":"Person","name":"Brandon Jensen"},"description":"A fractional QA team for software companies, with the Gloxx QA Institute as the published methodology behind the retainer.","email":"hello@gloxx.ai","sameAs":["https://www.facebook.com/profile.php?id=61588947554770","https://x.com/Gloxxai","https://github.com/gloxxai","https://www.youtube.com/@GloxxAI","https://www.linkedin.com/company/gloxxai"]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"TechArticle","headline":"How Gloxx Works","description":"How Gloxx runs QA for software companies: the general test pyramid, release gates, and tool stack — plus the AI-QA discipline (DeepEval, promptfoo, LangSmith, Claude Code operating protocol) layered on when you ship AI features.","author":{"@type":"Person","name":"Brandon Jensen"},"publisher":{"@id":"https://gloxx.ai/#organization"},"datePublished":"2026-05-02","dateModified":"2026-05-02","inLanguage":"en","mainEntityOfPage":"https://gloxx.ai/approach.html","image":"https://gloxx.ai/og-image.jpg","about":[{"@type":"Thing","name":"Quality assurance"},{"@type":"Thing","name":"AI-feature QA"},{"@type":"Thing","name":"Release gates"},{"@type":"Thing","name":"Test pyramid"}],"keywords":"test pyramid, release gates, AI feature QA, eval gate, DeepEval, promptfoo, LangSmith, Claude Code, regression testing, drift monitoring, refusal correctness"}
@@ -306,6 +306,91 @@
       text-transform: uppercase;
       color: var(--gloxx-accent);
       margin: 0 0 1.25rem;
+    }
+
+    .video-callout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.25rem;
+      margin: 2rem 0 2.75rem;
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gloxx-accent);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(124,249,181,.055), rgba(255,255,255,.018));
+    }
+    .video-copy .video-kicker {
+      display: block;
+      margin-bottom: .6rem;
+      font-family: var(--heading);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gloxx-accent);
+    }
+    .video-copy h3 {
+      margin: 0 0 .55rem;
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+    }
+    .ap-main .video-copy p {
+      margin-bottom: 1rem;
+      font-size: .98rem;
+      line-height: 1.6;
+    }
+    .video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--heading);
+      font-size: .9rem;
+      color: var(--gloxx-accent);
+    }
+    .video-link::after {
+      content: '↗';
+      font-size: .78rem;
+      transform: translateY(-1px);
+    }
+    .video-thumb {
+      position: relative;
+      display: block;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: #050607;
+    }
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .35s ease, opacity .35s ease;
+    }
+    .video-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 3.1rem;
+      height: 3.1rem;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--gloxx-accent);
+      box-shadow: 0 12px 36px rgba(0,0,0,.35);
+    }
+    .video-thumb::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: 50% auto auto 50%;
+      transform: translate(-38%, -50%);
+      border-left: .78rem solid var(--gloxx-accent-ink);
+      border-top: .52rem solid transparent;
+      border-bottom: .52rem solid transparent;
+    }
+    .video-thumb:hover img {
+      opacity: .86;
+      transform: scale(1.035);
     }
 
     /* Tool list */
@@ -591,6 +676,7 @@
       .ap-main h3 { font-size: 1.05rem; }
       .ap-main p { font-size: .97rem; }
       .ap-main .section-intro { font-size: 1rem; }
+      .video-callout { grid-template-columns: 1fr; }
       .pyramid { max-width: 100%; font-size: .78rem; }
       .pyramid .narrower, .pyramid .narrowest { max-width: 100%; }
       .checklist { padding: 1.25rem 1.25rem; }
@@ -717,6 +803,18 @@
           <hr class="ap-section-break" aria-hidden="true">
           <p class="section-divider">When you ship AI features — the specialty.</p>
           <p class="section-intro">The work below is what we layer on top when AI is in the product. It's the half of Gloxx's discipline that most QA shops don't have, and it's why the retainer includes AI-feature QA at no surcharge. Read on if it's relevant; skip ahead to <a href="#refuse" class="inline">§7</a> if it isn't. If you want a structured way to figure out where your team currently sits on this discipline, take the <a href="institute/assessment.html" class="inline">AI-QA Readiness Self-Assessment</a> — it’s the flagship instrument of the <a href="institute/" class="inline">Gloxx QA Institute</a>.</p>
+
+          <aside class="video-callout" aria-labelledby="qa-video-title">
+            <div class="video-copy">
+              <span class="video-kicker">Video argument</span>
+              <h3 id="qa-video-title">AI-written code makes QA more important, not less.</h3>
+              <p>A short Gloxx video on why companies are cutting QA at the exact moment generated code is increasing the surface area that needs independent release discipline.</p>
+              <a class="video-link" href="https://youtu.be/JZPafbBE0zg" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+            <a class="video-thumb" href="https://youtu.be/JZPafbBE0zg" target="_blank" rel="noopener" aria-label="Watch AI Wrote 41% of Code in 2025. Why Are Companies Firing QA? on YouTube">
+              <img src="https://i.ytimg.com/vi/JZPafbBE0zg/hq720.jpg" alt="" loading="lazy">
+            </a>
+          </aside>
 
           <!-- 1. Stack -->
           <h2 id="stack">The AI-QA tool stack</h2>
@@ -920,6 +1018,7 @@ relevancy    = AnswerRelevancyMetric(threshold=0.85)
         <a href="https://www.facebook.com/profile.php?id=61588947554770" target="_blank" rel="noopener">Facebook</a>
         <a href="https://x.com/Gloxxai" target="_blank" rel="noopener">X</a>
         <a href="https://github.com/gloxxai" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.youtube.com/@GloxxAI" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.linkedin.com/company/gloxxai" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <span class="footer-tag">Methodology in practice.</span>

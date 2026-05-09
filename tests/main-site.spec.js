@@ -170,8 +170,8 @@ test.describe('Main Site', () => {
 
   test('footer has social links', async ({ page }) => {
     const links = page.locator('.footer-links a');
-    await expect(links).toHaveCount(4);
-    await expect(links).toContainText(['Facebook', 'X', 'GitHub', 'LinkedIn']);
+    await expect(links).toHaveCount(5);
+    await expect(links).toContainText(['Facebook', 'X', 'GitHub', 'YouTube', 'LinkedIn']);
   });
 
   test('footer tagline shows', async ({ page }) => {

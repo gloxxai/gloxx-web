@@ -43,6 +43,14 @@ test.describe('Approach Page', () => {
     await expect(page.locator('.ap-toc-divider')).toBeVisible();
   });
 
+  test('AI specialty section features the YouTube video link', async ({ page }) => {
+    const video = page.locator('.video-callout');
+    await expect(video).toBeVisible();
+    await expect(video).toContainText('AI-written code makes QA more important');
+    await expect(video.locator('a[href="https://youtu.be/JZPafbBE0zg"]')).toHaveCount(2);
+    await expect(video.locator('img')).toHaveAttribute('src', /JZPafbBE0zg/);
+  });
+
   test('QA stack lists 8 named tools', async ({ page }) => {
     await page.locator('#stack').scrollIntoViewIfNeeded();
     await expect(page.locator('.tool')).toHaveCount(8);

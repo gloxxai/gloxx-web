@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Workflow 03 of 6 — drift monitoring in production.">
   <meta name="twitter:image" content="/og-image.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","@id":"https://gloxx.ai/#organization","name":"Gloxx","alternateName":"Gloxx QA Institute","url":"https://gloxx.ai","logo":"https://gloxx.ai/gloxx-logo-white-transparent-o-cutout.png","foundingDate":"2026","founder":{"@type":"Person","name":"Brandon Jensen"},"description":"A fractional QA team for software companies, with the Gloxx QA Institute as the published methodology behind the retainer.","email":"hello@gloxx.ai","sameAs":["https://github.com/gloxxai","https://www.linkedin.com/company/gloxxai"]}
+  {"@context":"https://schema.org","@type":"Organization","@id":"https://gloxx.ai/#organization","name":"Gloxx","alternateName":"Gloxx QA Institute","url":"https://gloxx.ai","logo":"https://gloxx.ai/gloxx-logo-white-transparent-o-cutout.png","foundingDate":"2026","founder":{"@type":"Person","name":"Brandon Jensen"},"description":"A fractional QA team for software companies, with the Gloxx QA Institute as the published methodology behind the retainer.","email":"hello@gloxx.ai","sameAs":["https://github.com/gloxxai","https://www.youtube.com/@GloxxAI","https://www.linkedin.com/company/gloxxai"]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"HowTo","name":"Drift Monitoring Workflow","description":"Production sampling, online evals, and the paging integration. The procedure that catches model degradation before users do.","author":{"@type":"Person","name":"Brandon Jensen"},"publisher":{"@id":"https://gloxx.ai/#organization"},"datePublished":"2026-05-02","dateModified":"2026-05-02","mainEntityOfPage":"https://gloxx.ai/institute/workflows/drift.html","step":[{"@type":"HowToStep","position":1,"name":"Log every input/output","text":"Every AI-feature request and response logged in production with enough context to reconstruct the eval case (system prompt version, retrieved chunks, model version)."},{"@type":"HowToStep","position":2,"name":"Sample for ongoing eval","text":"Random or stratified sample from production traffic enters a separate online-eval pipeline."},{"@type":"HowToStep","position":3,"name":"Compare prod scores to dev/CI","text":"The same metrics. The same thresholds. A delta between the two is the signal."},{"@type":"HowToStep","position":4,"name":"Wire paging","text":"Score degradation below threshold pages on-call. Severity tied to which metric degraded (faithfulness drop is severe; latency drift is lower)."},{"@type":"HowToStep","position":5,"name":"Run online evals continuously","text":"Not just sampled batches — continuous monitoring of the live eval surface for the most critical features."}]}
@@ -226,6 +226,7 @@
     <div class="footer-inner">
       <span class="footer-copy">&copy; 2026 Gloxx</span>
       <div class="footer-links">
+        <a href="https://www.youtube.com/@GloxxAI" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.linkedin.com/company/gloxxai" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/gloxxai" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:hello@gloxx.ai">hello@gloxx.ai</a>
